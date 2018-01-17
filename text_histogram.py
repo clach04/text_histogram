@@ -87,7 +87,7 @@ def test_median():
     assert "4.50" == "%.2f" % median([4.0,5,2,1,9,10]) #even-sized float list. (4.0+5)/2 = 4.5
 
 
-def histogram(stream, minimum=None, maximum=None, buckets=None, custbuckets=None, calc_msvd=True):
+def histogram(stream, minimum=None, maximum=None, buckets=None, custbuckets=None, calc_msvd=True, graph_char='▒'):
     """
     Loop over the stream and add each entry to the dataset, printing out at the end
 
@@ -176,7 +176,7 @@ def histogram(stream, minimum=None, maximum=None, buckets=None, custbuckets=None
         print "# %d value%s outside of min/max" % (skipped, skipped > 1 and 's' or '')
     if calc_msvd:
         print "# Mean = %f; Variance = %f; SD = %f; Median %f" % (mvsd.mean(), mvsd.var(), mvsd.sd(), median(accepted_data))
-    print "# each ∎ represents a count of %d" % bucket_scale
+    print "# each %s represents a count of %d" % (graph_char, bucket_scale)
     bucket_min = min_v
     bucket_max = min_v
     for bucket in range(buckets):
@@ -186,5 +186,5 @@ def histogram(stream, minimum=None, maximum=None, buckets=None, custbuckets=None
         star_count = 0
         if bucket_count:
             star_count = bucket_count / bucket_scale
-        print '%10.4f - %10.4f [%6d]: %s' % (bucket_min, bucket_max, bucket_count, '∎' * star_count)
+        print '%10.4f - %10.4f [%6d]: %s' % (bucket_min, bucket_max, bucket_count, graph_char * star_count)
 
