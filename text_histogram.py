@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
 # Copyright 2010 bit.ly
@@ -74,9 +74,9 @@ def test_mvsd():
 def median(values):
     length = len(values)
     if length%2:
-        median_indeces = [length/2]
+        median_indeces = [length//2]
     else:
-        median_indeces = [length/2-1, length/2]
+        median_indeces = [length//2-1, length//2]
 
     values = sorted(values)
     return sum([values[i] for i in median_indeces]) / len(median_indeces)
@@ -171,12 +171,12 @@ def histogram(stream, minimum=None, maximum=None, buckets=None, custbuckets=None
     if max(bucket_counts) > 75:
         bucket_scale = int(max(bucket_counts) / 75)
 
-    print "# NumSamples = %d; Min = %0.2f; Max = %0.2f" % (samples, min_v, max_v)
+    print("# NumSamples = %d; Min = %0.2f; Max = %0.2f" % (samples, min_v, max_v))
     if skipped:
-        print "# %d value%s outside of min/max" % (skipped, skipped > 1 and 's' or '')
+        print("# %d value%s outside of min/max" % (skipped, skipped > 1 and 's' or ''))
     if calc_msvd:
-        print "# Mean = %f; Variance = %f; SD = %f; Median %f" % (mvsd.mean(), mvsd.var(), mvsd.sd(), median(accepted_data))
-    print "# each ∎ represents a count of %d" % bucket_scale
+        print("# Mean = %f; Variance = %f; SD = %f; Median %f" % (mvsd.mean(), mvsd.var(), mvsd.sd(), median(accepted_data)))
+    print("# each ∎ represents a count of %d" % bucket_scale)
     bucket_min = min_v
     bucket_max = min_v
     for bucket in range(buckets):
@@ -186,5 +186,5 @@ def histogram(stream, minimum=None, maximum=None, buckets=None, custbuckets=None
         star_count = 0
         if bucket_count:
             star_count = bucket_count / bucket_scale
-        print '%10.4f - %10.4f [%6d]: %s' % (bucket_min, bucket_max, bucket_count, '∎' * star_count)
+        print('%10.4f - %10.4f [%6d]: %s' % (bucket_min, bucket_max, bucket_count, '∎' * int(star_count)))
 
