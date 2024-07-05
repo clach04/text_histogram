@@ -185,6 +185,6 @@ def histogram(stream, minimum=None, maximum=None, buckets=None, custbuckets=None
         bucket_count = bucket_counts[bucket]
         star_count = 0
         if bucket_count:
-            star_count = bucket_count / bucket_scale
+            star_count = int(bucket_count / bucket_scale)
         print('%10.4f - %10.4f [%6d]: %s' % (bucket_min, bucket_max, bucket_count, graph_char * star_count))
 
