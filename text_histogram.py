@@ -186,5 +186,5 @@ def histogram(stream, minimum=None, maximum=None, buckets=None, custbuckets=None
         star_count = 0
         if bucket_count:
             star_count = int(bucket_count / bucket_scale)
-        print('%10.4f - %10.4f [%6d]: %s' % (bucket_min, bucket_max, bucket_count, graph_char * star_count))
+        print('%11.4f - %11.4f [%6d]: %s' % (bucket_min, bucket_max, bucket_count, graph_char * star_count))  # TODO dynamically calc length of max value and generate string format on the fly
 
