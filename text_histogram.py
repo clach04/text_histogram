@@ -90,7 +90,7 @@ def test_median():
 DEFAULT_graph_char = u'\u2592'
 DEFAULT_display_empty_buckets = True
 
-def histogram(stream, minimum=None, maximum=None, buckets=None, custbuckets=None, calc_msvd=True, graph_char=None, display_empty_buckets=None):
+def histogram(stream, minimum=None, maximum=None, buckets=None, custbuckets=None, calc_msvd=True, graph_char=None, display_empty_buckets=None, hash_scale=75):
     """
     Loop over the stream and add each entry to the dataset, printing out at the end
 
@@ -178,8 +178,8 @@ def histogram(stream, minimum=None, maximum=None, buckets=None, custbuckets=None
                 break
 
     # auto-pick the hash scale
-    if max(bucket_counts) > 75:
-        bucket_scale = int(max(bucket_counts) / 75)
+    if max(bucket_counts) > hash_scale:
+        bucket_scale = int(max(bucket_counts) / hash_scale)
 
     print("# NumSamples = %d; Min = %0.2f; Max = %0.2f" % (samples, min_v, max_v))
     if skipped:
