@@ -21,7 +21,11 @@ Suggested setup.py parameters:
 PyPi:
 
     python -m pip install setuptools twine
-    twine upload dist/*
+
+    python setup.py sdist
+    # python setup.py sdist --formats=zip
+    python -m twine upload dist/* --verbose
+
     ./setup.py  sdist ; twine upload dist/* --verbose
 
 """)
