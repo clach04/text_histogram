@@ -106,7 +106,8 @@ def histogram(stream, minimum=None, maximum=None, buckets=None, custbuckets=None
     if not stream:
         raise NotImplementedError('No suport for empty data stream')
     graph_char = graph_char or DEFAULT_graph_char
-    display_empty_buckets = display_empty_buckets or DEFAULT_display_empty_buckets
+    if display_empty_buckets is None:
+        display_empty_buckets = DEFAULT_display_empty_buckets
     if not minimum or not maximum:
         # glob the iterator here so we can do min/max on it
         data = list(stream)
