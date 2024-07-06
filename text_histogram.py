@@ -105,9 +105,15 @@ def histogram(stream, minimum=None, maximum=None, buckets=None, custbuckets=None
     """
     if not stream:
         raise NotImplementedError('No suport for empty data stream')
+
     graph_char = graph_char or DEFAULT_graph_char
     if display_empty_buckets is None:
         display_empty_buckets = DEFAULT_display_empty_buckets
+
+    #display_string = '%11.4f - %11.4f [%6d]: %s'
+    fractional_digits = 4
+    display_string = '%%11.%df - %%11.%df [%%6d]: %%s' % (fractional_digits, fractional_digits)
+
     if not minimum or not maximum:
         # glob the iterator here so we can do min/max on it
         data = list(stream)
@@ -197,5 +203,5 @@ def histogram(stream, minimum=None, maximum=None, buckets=None, custbuckets=None
         if bucket_count:
             star_count = int(bucket_count / bucket_scale)
         if display_empty_buckets or bucket_count:
-            print('%11.4f - %11.4f [%6d]: %s' % (bucket_min, bucket_max, bucket_count, graph_char * star_count))  # TODO dynamically calc length of max value and generate string format on the fly
+            print(display_string % (bucket_min, bucket_max, bucket_count, graph_char * star_count))  # TODO dynamically calc length of max value and generate string format on the fly
 
