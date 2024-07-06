@@ -87,7 +87,7 @@ def test_median():
     assert "4.50" == "%.2f" % median([4.0,5,2,1,9,10]) #even-sized float list. (4.0+5)/2 = 4.5
 
 
-def histogram(stream, minimum=None, maximum=None, buckets=None, custbuckets=None, calc_msvd=True, graph_char='\u2592'):
+def histogram(stream, minimum=None, maximum=None, buckets=None, custbuckets=None, calc_msvd=True, graph_char=u'\u2592'):
     """
     Loop over the stream and add each entry to the dataset, printing out at the end
 
