@@ -69,6 +69,39 @@ ToDo items
   * Support for non-linear buckets/bins/intervals (see `display_empty_buckets` option)?
   * Support for Scott's rule https://en.wikipedia.org/wiki/Scott%27s_rule ?
   * Bug? https://github.com/Kobold/text_histogram/issues/2 https://github.com/bitly/data_hacks/pull/22
+  * Bug different results for python 2 (missing bar) compared with Python 3 - test case below:
+
+::
+
+    from text_histogram import histogram
+    python2_3_difference_with_low_counts = []
+
+    python2_3_difference_with_low_counts += [  2540] *  1142
+    python2_3_difference_with_low_counts += [  5071] *   163
+    python2_3_difference_with_low_counts += [  7602] *    67
+    python2_3_difference_with_low_counts += [ 10134] *    28
+    python2_3_difference_with_low_counts += [ 12665] *    17
+    python2_3_difference_with_low_counts += [ 15196] *    14
+    python2_3_difference_with_low_counts += [ 17728] *     4
+    python2_3_difference_with_low_counts += [ 20259] *     4
+    python2_3_difference_with_low_counts += [ 22790] *     2
+    python2_3_difference_with_low_counts += [ 25322] *     4
+    python2_3_difference_with_low_counts += [ 27853] *     2
+    python2_3_difference_with_low_counts += [ 30384] *     4
+    python2_3_difference_with_low_counts += [ 32915] *     2
+    python2_3_difference_with_low_counts += [ 40509] *     2
+    python2_3_difference_with_low_counts += [ 45572] *     1
+    python2_3_difference_with_low_counts += [ 50635] *     1
+    python2_3_difference_with_low_counts += [ 55697] *     1
+    python2_3_difference_with_low_counts += [ 63291] *     1
+    python2_3_difference_with_low_counts += [129105] *     1
+    python2_3_difference_with_low_counts += [162012] *     1
+    python2_3_difference_with_low_counts += [253139] *     1
+
+    print(python2_3_difference_with_low_counts)
+
+    histogram(python2_3_difference_with_low_counts, buckets=100, graph_char='#', display_empty_buckets=False)
+
 
 
 .. |downloads| image:: https://pypip.in/d/text-histogram32/badge.png
