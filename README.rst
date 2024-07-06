@@ -45,7 +45,8 @@ Installation
 
 .. code:: bash
 
-    $ pip install text_histogram32
+    pip uninstall text_histogram text_histogram3  # avoid conflicts
+    pip install text_histogram32
 
 
 Source: https://github.com/clach04/text_histogram32
