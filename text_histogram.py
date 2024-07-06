@@ -98,6 +98,8 @@ def histogram(stream, minimum=None, maximum=None, buckets=None, custbuckets=None
     custbuckets: Comma seperated list of bucket edges for the histogram
     calc_msvd: Calculate and display Mean, Variance and SD.
     """
+    if not stream:
+        raise NotImplementedError('No suport for empty data stream')
     if not minimum or not maximum:
         # glob the iterator here so we can do min/max on it
         data = list(stream)
