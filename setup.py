@@ -9,13 +9,12 @@ except ImportError:
 readme = open('README.rst').read()
 
 setup(
-    name='text_histogram',
+    name='text_histogram32',
     version='0.0.7',
-    description='A dependency-free library to quickly make ascii histograms from data.',
+    description='A dependency-free library to quickly make ascii/text histograms from data.',
     long_description=readme,
-    author='Andy Kish, Jehiah Czebotar',
-    author_email='agkish@gmail.com',
-    url='https://github.com/Kobold/text_histogram',
+    author='Andy Kish, Jehiah Czebotar, Jay Deiman, Jon Lundy, Chris Clark',
+    url='https://github.com/clach04/text_histogram32',
     py_modules=['text_histogram'],
     license='Apache License, Version 2.0',
     zip_safe=True,
@@ -26,5 +25,7 @@ setup(
         'Environment :: Console',
         'Intended Audience :: Developers',
         'Topic :: Terminals',
-    ]
+        'Topic :: Scientific/Engineering :: Mathematics',
+    ],
+    platforms='any',
 )

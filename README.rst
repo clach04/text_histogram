@@ -37,10 +37,27 @@ Installation
 
 .. code:: bash
 
-    $ pip install text_histogram
+    $ pip install text_histogram32
 
 
-Source: https://github.com/Kobold/text_histogram
+Source: https://github.com/clach04/text_histogram32
+
+Fork of https://github.com/Kobold/text_histogram with a few tweaks:
+
+  * Python 3 and 2.7 support
+  * Support for control over character used for the bar (see `graph_char` and `DEFAULT_graph_char` option)
+  * Support for NOT displaying empty buckets/bins/intervals (see `display_empty_buckets` and `DEFAULT_display_empty_buckets` option)
+  * Fixes
+      * https://github.com/Kobold/text_histogram/issues/4 - Zero for min or max value
+      * when min == max value
+      * improved error handling for empty data sets
+
+ToDo items
+
+  * Support for non-linear buckets/bins/intervals (see `display_empty_buckets` option)?
+  * Support for Scott's rule https://en.wikipedia.org/wiki/Scott%27s_rule ?
+  * Bug? https://github.com/Kobold/text_histogram/issues/2 https://github.com/bitly/data_hacks/pull/22
+
 
 
 .. |downloads| image:: https://pypip.in/d/text_histogram/badge.png
