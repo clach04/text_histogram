@@ -14,22 +14,30 @@ repackaged for convenient script use.
 
 ::
 
+    Python 3.11.3 (tags/v3.11.3:f3909b8, Apr  4 2023, 23:49:59) [MSC v.1934 64 bit (AMD64)] on win32
+    Type "help", "copyright", "credits" or "license" for more information.
     >>> from text_histogram import histogram
-    >>> import random
-    >>> histogram([random.gauss(50, 20) for _ in xrange(100)])
-    # NumSamples = 100; Min = 1.42; Max = 87.36
-    # Mean = 51.848095; Variance = 332.055832; SD = 18.222399; Median 53.239251
-    # each ∎ represents a count of 1
-        1.4221 -    10.0159 [     3]: ∎∎∎
-       10.0159 -    18.6098 [     3]: ∎∎∎
-       18.6098 -    27.2036 [     6]: ∎∎∎∎∎∎
-       27.2036 -    35.7974 [     4]: ∎∎∎∎
-       35.7974 -    44.3913 [    17]: ∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎
-       44.3913 -    52.9851 [    16]: ∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎
-       52.9851 -    61.5789 [    17]: ∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎
-       61.5789 -    70.1728 [    20]: ∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎
-       70.1728 -    78.7666 [     8]: ∎∎∎∎∎∎∎∎
-       78.7666 -    87.3604 [     6]: ∎∎∎∎∎∎
+    >>> histogram([1, 2, 2, 2, 2, 3, 3, 3], graph_char='#')
+    # NumSamples = 8; Min = 1.00; Max = 3.00
+    # Mean = 2.250000; Variance = 0.437500; SD = 0.661438; Median 2.000000
+    # each # represents a count of 1
+         1.0000 -      1.2000 [     1]: #
+         1.2000 -      1.4000 [     0]:
+         1.4000 -      1.6000 [     0]:
+         1.6000 -      1.8000 [     0]:
+         1.8000 -      2.0000 [     4]: ####
+         2.0000 -      2.2000 [     0]:
+         2.2000 -      2.4000 [     0]:
+         2.4000 -      2.6000 [     0]:
+         2.6000 -      2.8000 [     0]:
+         2.8000 -      3.0000 [     3]: ###
+    >>> histogram([1, 2, 2, 2, 2, 3, 3, 3], graph_char='#', display_empty_buckets=False)
+    # NumSamples = 8; Min = 1.00; Max = 3.00
+    # Mean = 2.250000; Variance = 0.437500; SD = 0.661438; Median 2.000000
+    # each # represents a count of 1
+         1.0000 -      1.2000 [     1]: #
+         1.8000 -      2.0000 [     4]: ####
+         2.8000 -      3.0000 [     3]: ###
 
 
 Installation
@@ -44,6 +52,7 @@ Source: https://github.com/clach04/text_histogram32
 
 Fork of https://github.com/Kobold/text_histogram with a few tweaks:
 
+  * **Same** name space as original text_histogram
   * Python 3 and 2.7 support
   * Support for control over character used for the bar (see `graph_char` and `DEFAULT_graph_char` option)
   * Support for NOT displaying empty buckets/bins/intervals (see `display_empty_buckets` and `DEFAULT_display_empty_buckets` option)
