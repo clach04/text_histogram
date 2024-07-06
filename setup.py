@@ -4,7 +4,27 @@ try:
     from setuptools import setup
 except ImportError:
     from distutils.core import setup
+import sys
 
+
+if len(sys.argv) <= 1:
+    print("""
+Suggested setup.py parameters:
+
+    * build
+    * install
+    * sdist  --formats=zip
+    * sdist  # NOTE requires tar/gzip commands
+
+    python -m pip install -e .
+
+PyPi:
+
+    python -m pip install setuptools twine
+    twine upload dist/*
+    ./setup.py  sdist ; twine upload dist/* --verbose
+
+""")
 
 readme = open('README.rst').read()
 
