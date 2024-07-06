@@ -34,7 +34,7 @@ readme = open('README.rst').read()
 
 setup(
     name='text_histogram32',
-    version='0.0.7',
+    version='0.0.8.dev1',
     description='A dependency-free library to quickly make ascii/text histograms from data.',
     long_description=readme,
     author='Andy Kish, Jehiah Czebotar, Jay Deiman, Jon Lundy, Chris Clark',
