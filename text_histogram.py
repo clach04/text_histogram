@@ -160,7 +160,7 @@ def histogram(stream, minimum=None, maximum=None, buckets=None, custbuckets=None
         buckets = buckets or 10
         if buckets <= 0:
             raise ValueError('# of buckets must be > 0')
-        step = diff / buckets
+        step = diff / buckets  # FIXME this likely needs math.ceil()
         bucket_counts = [0 for x in range(buckets)]
         for x in range(buckets):
             boundaries.append(min_v + (step * (x + 1)))
@@ -201,7 +201,7 @@ def histogram(stream, minimum=None, maximum=None, buckets=None, custbuckets=None
         bucket_count = bucket_counts[bucket]
         star_count = 0
         if bucket_count:
-            star_count = int(bucket_count / bucket_scale)
+            star_count = math.ceil(bucket_count / bucket_scale)
         if display_empty_buckets or bucket_count:
             print(display_string % (bucket_min, bucket_max, bucket_count, graph_char * star_count))  # TODO dynamically calc length of max value and generate string format on the fly
 
