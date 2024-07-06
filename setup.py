@@ -18,7 +18,8 @@ setup(
     py_modules=['text_histogram'],
     license='Apache License, Version 2.0',
     zip_safe=True,
-    classifiers=[
+    classifiers=[  # See http://pypi.python.org/pypi?%3Aaction=list_classifiers
+        'License :: OSI Approved :: Apache Software License',
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 2",
         'Development Status :: 4 - Beta',
