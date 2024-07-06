@@ -87,7 +87,10 @@ def test_median():
     assert "4.50" == "%.2f" % median([4.0,5,2,1,9,10]) #even-sized float list. (4.0+5)/2 = 4.5
 
 
-def histogram(stream, minimum=None, maximum=None, buckets=None, custbuckets=None, calc_msvd=True, graph_char=u'\u2592', display_empty_buckets=True):
+DEFAULT_graph_char = u'\u2592'
+DEFAULT_display_empty_buckets = True
+
+def histogram(stream, minimum=None, maximum=None, buckets=None, custbuckets=None, calc_msvd=True, graph_char=None, display_empty_buckets=None):
     """
     Loop over the stream and add each entry to the dataset, printing out at the end
 
@@ -97,9 +100,13 @@ def histogram(stream, minimum=None, maximum=None, buckets=None, custbuckets=None
     buckets: Number of buckets to use for the histogram
     custbuckets: Comma seperated list of bucket edges for the histogram
     calc_msvd: Calculate and display Mean, Variance and SD.
+    graph_char: Character to display for counts in histogram/bar.
+    display_empty_buckets: if False, do not show empty buckets in display.
     """
     if not stream:
         raise NotImplementedError('No suport for empty data stream')
+    graph_char = graph_char or DEFAULT_graph_char
+    display_empty_buckets = display_empty_buckets or DEFAULT_display_empty_buckets
     if not minimum or not maximum:
         # glob the iterator here so we can do min/max on it
         data = list(stream)
