@@ -70,7 +70,6 @@ ToDo items
   * Bug? https://github.com/Kobold/text_histogram/issues/2 https://github.com/bitly/data_hacks/pull/22
 
 
-https://pypi.org/project/text-histogram32/0.0.7/
 .. |downloads| image:: https://pypip.in/d/text-histogram32/badge.png
    :target: https://pypi.python.org/pypi/text-histogram32
    :alt: Number of PyPI downloads
