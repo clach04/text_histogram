@@ -66,6 +66,7 @@ ToDo items
 
   * Test suite
   * see https://github.com/piccolomo/plotext/blob/master/readme/bar.md#histogram-plot
+  * see https://github.com/nschloe/termplotlib?tab=readme-ov-file#similar-projects
   * Improve dynamic sizing of string and bar
   * Support for non-linear buckets/bins/intervals (see `display_empty_buckets` option)?
   * Support for Scott's rule https://en.wikipedia.org/wiki/Scott%27s_rule ?
